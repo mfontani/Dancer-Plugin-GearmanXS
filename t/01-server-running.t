@@ -2,9 +2,7 @@
 use strict;
 use warnings;
 use Test::More;
-
 use Dancer::Plugin::GearmanXS;
-
 use Gearman::XS qw/:constants/;
 
 my $client = Gearman::XS::Client->new;
