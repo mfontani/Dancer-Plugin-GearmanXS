@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-package Dancer::Plugin::Gearman;
+package Dancer::Plugin::GearmanXS;
 
 use Dancer ':syntax';
 use Dancer::Plugin;
@@ -17,7 +17,7 @@ my $gearman_serializer = sub { nfreeze( @_ ) };
 
 =head1 NAME
 
-Dancer::Plugin::Gearman - a Dancer Gearman::XS client
+Dancer::Plugin::GearmanXS - a Dancer Gearman::XS client
 
 =head1 SYNOPSIS
 
@@ -31,7 +31,7 @@ You will need to configure a list of Gearman servers the plugin will be
 contacting. In your configuration file:
 
     plugins:
-        Gearman::Client:
+        GearmanXS:
             job_servers:
                 - 127.0.0.1
                 - 192.168.1.100:12345
@@ -42,7 +42,7 @@ In your package/app:
 
     package MyApp;
     use Dancer;
-    use Dancer::Plugin::Gearman::Client;
+    use Dancer::Plugin::GearmanXS;
     use YAML;
 
     # use YAML as serializer rather than Storable
