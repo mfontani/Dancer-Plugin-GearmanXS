@@ -5,7 +5,7 @@ use Dancer;
 use FindBin;
 use lib "$FindBin::Bin/../../lib";
 
-use Dancer::Plugin::Gearman;
+use Dancer::Plugin::GearmanXS;
 
 get qr,^/(?<numbers>.*)$, => sub {
     my @numbers = split('/', captures->{numbers});
