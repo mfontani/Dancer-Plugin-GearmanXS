@@ -8,12 +8,13 @@ use Dancer::Plugin::GearmanXS;
 use Gearman::XS qw/:constants/;
 
 my $client = Gearman::XS::Client->new;
-$client->set_timeout(200);
-$client->add_server('localhost');
+$client->set_timeout(2000);
+$client->add_server('127.0.0.1',4730);
 
-$client->echo("Test") == GEARMAN_SUCCESS
+($client->echo("Test") == GEARMAN_SUCCESS)
     or plan skip_all => "Need gearman server running. Error echo: " . $client->error;
 
 diag "Gearman is running...";
+ok(1);
 
 done_testing;
